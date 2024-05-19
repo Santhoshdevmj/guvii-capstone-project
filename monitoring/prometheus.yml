@@ -1,0 +1,8 @@
+# prometheus.yml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'guvii-capstone'
+    static_configs:
+      - targets: ['13.126.221.211:80']
