@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Build your application
-                sh 'sudo docker build -t $DOCKER_IMAGE_NAME .'
+                sh 'docker build -t $DOCKER_IMAGE_NAME .'
             }
         }
         stage('Tag and Push') {
@@ -19,8 +19,8 @@ pipeline {
                 script {
                     def tags = ['latest', 'v1.0', 'development']
                     tags.each { tag ->
-                        sh "sudo docker tag $DOCKER_IMAGE_NAME $DOCKER_REGISTRY/$DOCKER_IMAGE_NAME:$tag"
-                        sh "sudo docker push $DOCKER_REGISTRY/$DOCKER_IMAGE_NAME:$tag"
+                        sh "docker tag $DOCKER_IMAGE_NAME $DOCKER_REGISTRY/$DOCKER_IMAGE_NAME:$tag"
+                        sh "docker push $DOCKER_REGISTRY/$DOCKER_IMAGE_NAME:$tag"
                     }
                 }
             }
