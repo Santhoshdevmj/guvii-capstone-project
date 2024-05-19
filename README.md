@@ -17,13 +17,23 @@ Execute step commands i used Jenkinsfile
 **AWS Screenshots**
     EC2:    
         ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/f771c88c-d5c9-474e-9745-5a70806c6fcb)
-
-![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/33f48ce4-855a-4769-8187-0fbdddb8496d)
-
+    
     Security Groups:
         ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/dd7fc6c9-86c3-456c-9e1a-7b6f3568773c)
         ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/81956939-1a92-45b5-9692-71d82204e250)
 
+![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/33f48ce4-855a-4769-8187-0fbdddb8496d)**
+**DockerHub Registry Images****
+    dev registry is public
+        docker pull varmavikramvasudev65624/guvii-capstone-dev-project
+        port 80
+        ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/95544796-accd-4051-8cee-16aac64c1bfd)
+        IMAGES WITH DIFFERENT TAGS
+       ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/f2621814-4cc7-428c-8c7a-b520a4d2b097)
+   pro Registry is private 
+       ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/4f825abf-a4ac-4a7a-b1fe-91a7e134e649)
+
+    
         
 
 
