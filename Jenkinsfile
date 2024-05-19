@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_REGISTRY = 'https://hub.docker.com/repository/docker/santhosh9790500644/guvii-capstone-dev'
-        DOCKER_IMAGE_NAME = 'santhosh9790500644/guvii-capstone-dev'
+        DOCKER_REGISTRY = 'https://hub.docker.com/repository/docker/santhosh9790500644'
+        DOCKER_IMAGE_NAME = 'guvii-capstone-dev'
     }
 
     stages {
