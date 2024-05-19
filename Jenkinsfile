@@ -16,10 +16,9 @@ pipeline {
     stage('Push Image to Docker Hub') {
       steps {
         script {
-          // def imageName = "varmavikramvasudev65624/guvii-capstone-dev-project:latest"
           def credentialsId = 'docker-hub-credentials'
           sh "docker login -u \${env.DOCKER_USERNAME} -p \${env.DOCKER_PASSWORD}"
-          sh "docker push varmavikramvasudev65624/guvii-capstone-dev-project:latest"
+          sh "docker push varmavikramvasudev65624/guvii-capstone-dev-project:latest" // Add quotes around the entire command
         }
       }
     }
