@@ -14,14 +14,17 @@ pipeline {
       }
     }
     stage('Push Image to Docker Hub') {
-      steps {
+    steps {
         script {
-          def credentialsId = 'docker-hub-credentials'
-          sh "docker login -u \${env.DOCKER_USERNAME} -p \${env.DOCKER_PASSWORD}"
-          sh "docker push varmavikramvasudev65624/guvii-capstone-dev-project:latest" // Add quotes around the entire command
+            def credentialsId = 'docker-hub-credentials'
+            withCredentials([usernamePassword(credentialsId: credentialsId, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
+                sh "docker push varmavikramvasudev65624/guvii-capstone-dev-project:latest"
+            }
         }
-      }
     }
+}
+
     // stage('Deploy Container') {
     //   steps {
     //     sh 'docker pull varmavikramvasudev65624/guvii-capstone-dev-project:latest'
