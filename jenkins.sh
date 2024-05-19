@@ -3,6 +3,8 @@
 # Update package manager
 sudo apt update
 
+sudo apt upgrade -y
+
 # Install required dependencies
 sudo apt install -y fontconfig openjdk-17-jre
 
