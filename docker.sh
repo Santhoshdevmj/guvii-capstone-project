@@ -25,6 +25,8 @@ sudo apt-get update
 # Install Docker packages
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+sudo apt-get install docker-compose-plugin
+
 # Check Docker status
 sudo systemctl status docker
 
