@@ -5,7 +5,6 @@ pipeline {
         DOCKER_HUB_CREDENTIALS = 'docker-hub-credentials'
         DOCKER_IMAGE_NAME = 'guvii-capstone-dev'
         DOCKER_REGISTRY = 'docker.io/santhosh9790500644'
-        DOCKER_IMAGE_TAG = 'latest'
     }
 
     stages {
@@ -18,7 +17,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build("-t ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} .")
+                    docker.build("${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:${BUILD_NUMBER}")
                 }
             }
         }
@@ -28,7 +27,7 @@ pipeline {
                 script {
                     withCredentials([usernamePassword(credentialsId: DOCKER_HUB_CREDENTIALS, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                         docker.withRegistry("https://index.docker.io/v1/", "docker") {
-                            docker.image("${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}").push("latest")
+                            docker.image("${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:${BUILD_NUMBER}").push("latest")
                         }
                     }
                 }
@@ -39,10 +38,10 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('', DOCKER_HUB_CREDENTIALS) {
-                        sh "docker pull ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
+                        sh "docker pull ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:latest"
                         sh "docker stop ${DOCKER_IMAGE_NAME} || true"
                         sh "docker rm ${DOCKER_IMAGE_NAME} || true"
-                        sh "docker run -d --name ${DOCKER_IMAGE_NAME} -p 80:80 ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
+                        sh "docker run -d --name ${DOCKER_IMAGE_NAME} -p 80:80 ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:latest"
                     }
                 }
             }
