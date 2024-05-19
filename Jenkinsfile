@@ -5,7 +5,7 @@ pipeline {
         DOCKER_HUB_CREDENTIALS = 'docker-hub-credentials'
         DOCKER_IMAGE_NAME = 'guvii-capstone-dev'
         DOCKER_REGISTRY = 'docker.io/santhosh9790500644'
-        DOCKER_IMAGE_TAG = 'latest' // Change the tag here
+        DOCKER_IMAGE_TAG = 'latest'
     }
 
     stages {
