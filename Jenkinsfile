@@ -1,50 +1,33 @@
 pipeline {
-    agent any
-    
-    environment {
-        DOCKER_HUB_CREDENTIALS = 'docker-hub-credentials'
-        DOCKER_IMAGE_NAME = 'guvii-capstone-dev'
-        DOCKER_REGISTRY = 'docker.io/santhosh9790500644'
-    }
+  agent any
 
-    stages {
-        stage('Clone Repository') {
-            steps {
-                checkout scm
-            }
-        }
-        
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    docker.build("${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:${BUILD_NUMBER}")
-                }
-            }
-        }
-        
-        stage('Push Image to Docker Hub') {
-            steps {
-                script {
-                    withCredentials([usernamePassword(credentialsId: DOCKER_HUB_CREDENTIALS, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                        docker.withRegistry("https://index.docker.io/v1/", "docker") {
-                            docker.image("${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:${BUILD_NUMBER}").push("latest")
-                        }
-                    }
-                }
-            }
-        }
-
-        stage('Deploy Container') {
-            steps {
-                script {
-                    docker.withRegistry('', DOCKER_HUB_CREDENTIALS) {
-                        sh "docker pull ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:latest"
-                        sh "docker stop ${DOCKER_IMAGE_NAME} || true"
-                        sh "docker rm ${DOCKER_IMAGE_NAME} || true"
-                        sh "docker run -d --name ${DOCKER_IMAGE_NAME} -p 80:80 ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:latest"
-                    }
-                }
-            }
-        }
+  stages {
+    stage('Clone Repo') {
+      steps {
+        git branch: 'master', // Change 'master' to your desired branch
+          url: 'https://github.com/Santhoshdevmj/guvii-capstone-project.git'
+      }
     }
+    stage('Build Docker Image') {
+      steps {
+        sh 'docker build -t santhosh9790500644/guvii-capstone-dev:latest .' // Build with ":latest" tag
+      }
+    }
+    stage('Push Image to Docker Hub') {
+      steps {
+        script {
+          def imageName = "santhosh9790500644/guvii-capstone-dev:latest"
+          def credentialsId = 'docker-hub-credentials'
+          sh "docker login -u \${env.DOCKER_USERNAME} -p \${env.DOCKER_PASSWORD}"
+          sh "docker push ${imageName}"
+        }
+      }
+    }
+    stage('Deploy Container') {
+      steps {
+        sh 'docker pull santhosh9790500644/guvii-capstone-dev:latest'
+        sh 'docker run -d -p 80:80 santhosh9790500644/guvii-capstone-dev:latest --name guvii-capstone-dev' // Add container name (optional)
+      }
+    }
+  }
 }
