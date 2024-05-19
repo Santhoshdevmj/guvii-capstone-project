@@ -41,7 +41,7 @@ pipeline {
                         sh "docker pull ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:latest"
                         sh "docker stop ${DOCKER_IMAGE_NAME} || true"
                         sh "docker rm ${DOCKER_IMAGE_NAME} || true"
-                        sh "docker run -d --name ${DOCKER_IMAGE_NAME} -p 8080:8080 ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:latest"
+                        sh "docker run -d --name ${DOCKER_IMAGE_NAME} -p 80:80 ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:latest"
                     }
                 }
             }
