@@ -16,7 +16,7 @@ pipeline {
     stage('Push Image to Docker Hub') {
     steps {
         script {
-            def credentialsId = 'docker-hub-credentials'
+            def credentialsId = 'docker-hub-private-credentials'
             withCredentials([usernamePassword(credentialsId: credentialsId, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                 sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
                 sh "docker push varmavikramvasudev65624/guvii-capstone-prod-project:latest"
