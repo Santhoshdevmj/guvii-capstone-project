@@ -24,7 +24,7 @@ pipeline {
                         sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
 
                         // Increment version minor for each build
-                        def versionMinor = sh(script: 'echo $(( ${env.VERSION_MINOR} + 1 ))', returnStdout: true).trim()
+                        def versionMinor = sh(script: 'echo $((VERSION_MINOR + 1))', returnStdout: true).trim()
 
                         // Tag and push Docker images with different tags
                         def tags = ['latest', "${VERSION_MAJOR}.${versionMinor}", 'development']
@@ -48,7 +48,7 @@ pipeline {
                         sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
 
                         // Pull the latest image
-                        sh "docker pull $DOCKER_REGISTRY:latest"
+                        sh "docker pull $DOCKER_REGISTRY:$tag"
 
                         // Stop and remove the old container if it exists
                         sh """
