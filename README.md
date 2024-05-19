@@ -9,5 +9,11 @@
 ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/d0422973-f06b-4569-bdf0-7fe46bbc98b3)
 ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/b6263a07-46c4-437f-92b7-02f40a138641)
 ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/35c7c375-5d04-47c2-b60a-e2504ab19431)
+Execute step commands i used Jenkinsfile 
+        1. ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/65a53e24-85d0-4675-b5be-3471c67e5446)
+
+        2. ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/c9ac0bd4-a4f2-4a0a-9685-0be5ddcf2bab)
+        
+
 
 
