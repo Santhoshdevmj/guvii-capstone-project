@@ -25,11 +25,11 @@ pipeline {
     }
 }
 
-    // stage('Deploy Container') {
-    //   steps {
-    //     sh 'docker pull varmavikramvasudev65624/guvii-capstone-dev-project:latest'
-    //     sh 'docker run -d -p 80:80 varmavikramvasudev65624/guvii-capstone-dev-project:latest --name guvii-capstone-dev-project'
-    //   }
-    // }
+    stage('Deploy Container') {
+      steps {
+        sh 'docker pull varmavikramvasudev65624/guvii-capstone-dev-project:latest'
+        sh 'docker run -d -p 80:80 varmavikramvasudev65624/guvii-capstone-dev-project:latest --name guvii-capstone-dev-project'
+      }
+    }
   }
 }
