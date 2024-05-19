@@ -33,6 +33,17 @@ Execute step commands i used Jenkinsfile
    pro Registry is private 
        ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/4f825abf-a4ac-4a7a-b1fe-91a7e134e649)
 
+**Deployed Site Page Screenshots**
+        ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/b6b38b2a-326a-405d-a58e-992fe75313fc)
+        ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/ab54b94d-411a-4dad-aa62-e271f2ba4dc4)
+        ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/05777961-5cce-4bef-be7f-db4fbce46c85)
+        ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/19884ba5-5340-4e43-9d44-5a0e73fa0bf2)
+        ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/69b77378-4867-443a-805b-e655b3156522)
+
+**Monitoring Health status**
+        ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/b873e8ef-4c5c-40bf-b152-1cdb766c3711)
+        ![image](https://github.com/Santhoshdevmj/guvii-capstone-project/assets/104358799/28948adc-702f-48f1-9088-f4ba30997512)
+
     
         
 
